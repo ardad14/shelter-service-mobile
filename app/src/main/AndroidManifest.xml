@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Petsfromshelter">
-        <activity android:name=".RegistrationActivity"></activity>
+        <activity
+            android:name=".ShelterActivity"
+            android:label="@string/title_activity_shelter"
+            android:theme="@style/Theme.Petsfromshelter.NoActionBar"></activity>
+        <activity android:name=".RegistrationActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
