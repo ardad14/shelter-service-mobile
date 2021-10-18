@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -27,8 +26,8 @@ class MainActivity : AppCompatActivity() {
                     it.forEach {
                         if (it.get("email").toString().equals(email.text.toString())) {
                             if (it.get("password").toString().equals(password.text.toString())) {
-                                val shelterActivity = Intent (this, ShelterActivity::class.java)
-                                startActivity(shelterActivity)
+                                val createShelterActivity = Intent (this, CreateShelterActivity::class.java)
+                                startActivity(createShelterActivity)
                             } else {
                                 password.setBackgroundColor(Color.parseColor("#FF0000"))
                             }
