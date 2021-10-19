@@ -7,4 +7,226 @@
     android:background="@drawable/bg"
     tools:context=".ShelterActivity">
 
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="311dp"
+        android:layout_height="593dp"
+        android:background="@drawable/background_div"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
+        app:layout_constraintVertical_bias="0.322" />
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/shelter_title"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="82dp"
+        android:text="@string/shelter_name"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/nameText"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="131dp"
+        android:background="@drawable/input_radius"
+        android:padding="5dp"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/nameTitle" />
+
+    <TextView
+        android:id="@+id/longitudeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="82dp"
+        android:text="@string/shelter_longitude"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+
+    <TextView
+        android:id="@+id/longitudeText"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="131dp"
+        android:background="@drawable/input_radius"
+        android:padding="5dp"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/longitudeTitle" />
+
+    <TextView
+        android:id="@+id/latitudeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="82dp"
+        android:text="@string/shelter_latitude"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/longitudeText" />
+
+    <TextView
+        android:id="@+id/latitudeText"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="131dp"
+        android:background="@drawable/input_radius"
+        android:padding="5dp"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/latitudeTitle" />
+
+    <TextView
+        android:id="@+id/phoneTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="82dp"
+        android:text="@string/registration_phone"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/latitudeText" />
+
+    <TextView
+        android:id="@+id/phoneText"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="131dp"
+        android:background="@drawable/input_radius"
+        android:padding="5dp"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/phoneTitle" />
+
+    <TextView
+        android:id="@+id/emailTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="82dp"
+        android:text="@string/registration_email"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/phoneText" />
+
+    <TextView
+        android:id="@+id/emailText"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="131dp"
+        android:background="@drawable/input_radius"
+        android:padding="5dp"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/emailTitle" />
+
+    <TextView
+        android:id="@+id/urlText"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="131dp"
+        android:background="@drawable/input_radius"
+        android:padding="5dp"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/urlTitle" />
+
+    <TextView
+        android:id="@+id/urlTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="82dp"
+        android:text="@string/shelter_url"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/emailText" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="93dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginEnd="112dp"
+        android:text="@string/shelter_change"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/urlText"
+        app:layout_constraintVertical_bias="0.594" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
