@@ -24,4 +24,6 @@
     <string name="shelter_latitude">Широта</string>
     <string name="shelter_url">Посилання на сайт</string>
     <string name="shelter_create">Створити</string>
+    <string name="shelter_title">Дані про ваш притулок</string>
+    <string name="shelter_change">Змінити</string>
 </resources>

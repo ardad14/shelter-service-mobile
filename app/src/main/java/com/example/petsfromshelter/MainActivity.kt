@@ -14,6 +14,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val shelterActivity = Intent (this, ShelterActivity::class.java)
+        startActivity(shelterActivity)
+
     }
 
     fun signUp(view: View) {
