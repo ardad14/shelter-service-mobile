@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Petsfromshelter">
-        <activity android:name=".ShelterActivity"></activity>
+       <activity android:name=".ShelterActivity"/>
         <activity
             android:name=".CreateShelterActivity"
             android:label="@string/title_activity_shelter"
