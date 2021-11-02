@@ -1,12 +1,13 @@
 package com.example.petsfromshelter.entity
 
-class Shelter constructor (
-    private var id: Int,
-    private var name: String,
-    private var email: String,
-    private var longtitude: Double,
-    private var latitude: Double,
-    private var phone: String
-) {
+data class Shelter (
+    var id: Int,
+    var name: String,
+    var email: String,
+    var longitude: Double,
+    var latitude: Double,
+    var phone: String,
+    var siteUrl: String
+)
 
-}
+
