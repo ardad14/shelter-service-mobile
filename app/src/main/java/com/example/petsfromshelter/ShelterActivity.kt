@@ -1,12 +1,17 @@
 package com.example.petsfromshelter
 
 import android.content.Intent
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
-import com.google.firebase.firestore.FirebaseFirestore
+import androidx.appcompat.app.AppCompatActivity
+import com.example.petsfromshelter.entity.Shelter
+import com.example.petsfromshelter.retrofit.objects.GetShelters;
+import com.example.petsfromshelter.retrofit.objects.UpdateShelter
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class ShelterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,31 +25,28 @@ class ShelterActivity : AppCompatActivity() {
         val email: EditText = findViewById<EditText>(R.id.emailText)
         val siteUrl: EditText = findViewById<EditText>(R.id.urlText)
 
-        val db = FirebaseFirestore.getInstance()
-
-        db.collection("shelter")
-                .get().addOnSuccessListener {
-                    it.forEach {
-                        if (it.get("name").toString().equals("Pets Friendly")) {
-                            name.text.insert(0, it.get("name").toString())
-                            longitude.text.insert(0, it.get("longitude").toString())
-                            latitude.text.insert(0, it.get("latitude").toString())
-                            phone.text.insert(0, it.get("phone").toString())
-                            email.text.insert(0, it.get("email").toString())
-                            siteUrl.text.insert(0, it.get("siteUrl").toString())
-                        }
-
-                    }
-                }
 
 
+        val ShelterService = GetShelters.sheltersRetrofitService;
+        ShelterService.getShelterList().enqueue(object : Callback<ArrayList<Shelter>> {
+            override fun onFailure(call: Call<ArrayList<Shelter>>, t: Throwable) {}
+
+            override fun onResponse(call: Call<ArrayList<Shelter>>, response: Response<ArrayList<Shelter>>) {
+
+                val shelter = response.body()?.get(0);
+                //println(shelter)
+
+                name.text.insert(0, shelter?.name.toString())
+                longitude.text.insert(0, shelter?.longitude.toString())
+                latitude.text.insert(0, shelter?.latitude.toString())
+                phone.text.insert(0, shelter?.phone.toString())
+                email.text.insert(0, shelter?.email.toString())
+                siteUrl.text.insert(0, shelter?.siteUrl.toString())
+            }
+        })
     }
 
     fun editShelter(view: View) {
-        /*val nameRegex = Regex("[a-zA-Z]{4,}")
-        val phoneRegex = Regex("[+][0-9]{4,}")
-        val emailRegex = Regex("\\w+@\\w+\\.\\w+")*/
-
         val name: EditText = findViewById<EditText>(R.id.nameText)
         val longitude: EditText = findViewById<EditText>(R.id.longitudeText)
         val latitude: EditText = findViewById<EditText>(R.id.latitudeText)
@@ -53,31 +55,39 @@ class ShelterActivity : AppCompatActivity() {
         val siteUrl: EditText = findViewById<EditText>(R.id.urlText)
 
         /*if (!nameRegex.matches(name.text.toString())) {
-            name.setBackgroundColor(Color.parseColor("#FF0000"))
-            return
-        }
-        if(!phoneRegex.matches(phone.text.toString())) {
-            phone.setBackgroundColor(Color.parseColor("#FF0000"));
-            return
-        }
-        if(!emailRegex.matches(email.text.toString())) {
-            email.setBackgroundColor(Color.parseColor("#FF0000"));
-            return
-        }*/
+        name.setBackgroundColor(Color.parseColor("#FF0000"))
+        return
+    }
+    if(!phoneRegex.matches(phone.text.toString())) {
+        phone.setBackgroundColor(Color.parseColor("#FF0000"));
+        return
+    }
+    if(!emailRegex.matches(email.text.toString())) {
+        email.setBackgroundColor(Color.parseColor("#FF0000"));
+        return
+    }*/
 
-        val db = FirebaseFirestore.getInstance()
-        val shelter = db.collection("shelter").document("qJaxsgth1IyxdknGEjmk")
+        val shelter = Shelter(
+            1,
+            name.text.toString(),
+            email.text.toString(),
+            longitude.text.toString().toDouble(),
+            latitude.text.toString().toDouble(),
+            phone.text.toString(),
+            siteUrl.text.toString()
+        );
 
-        shelter.set(mapOf(
-                "name" to name.text.toString(),
-                "latitude" to latitude.text.toString(),
-                "longitude" to longitude.text.toString(),
-                "email" to email.text.toString(),
-                "phone" to phone.text.toString(),
-                "siteUrl" to siteUrl.text.toString()
-        ))
+        val updateShelter = UpdateShelter.updateShelter;
+        updateShelter.updateShelter(shelter).enqueue(object : Callback<Shelter> {
+            override fun onFailure(call: Call<Shelter>, t: Throwable) {}
 
-        val shelterActivity = Intent (this, ShelterActivity::class.java)
+            override fun onResponse(call: Call<Shelter>, response: Response<Shelter>) {
+
+                println(response.code());
+            }
+        })
+
+        val shelterActivity = Intent(this, ShelterActivity::class.java)
         startActivity(shelterActivity)
     }
 }
