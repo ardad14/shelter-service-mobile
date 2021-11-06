@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 email.text.toString(),
                 password.text.toString()
         );
-        val intent = Intent(this, ShelterActivity::class.java)
+        val intent = Intent(this, ShelterMaps::class.java)
         val loginService = Login.login;
         loginService.login(user).enqueue(object : Callback<User> {
             override fun onFailure(call: Call<User>, t: Throwable) {}

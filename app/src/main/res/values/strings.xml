@@ -26,4 +26,5 @@
     <string name="shelter_create">Створити</string>
     <string name="shelter_title">Дані про ваш притулок</string>
     <string name="shelter_change">Змінити</string>
+    <string name="title_activity_shelter_maps">Map</string>
 </resources>
