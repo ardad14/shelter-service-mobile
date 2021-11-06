@@ -1,6 +1,5 @@
 package com.example.petsfromshelter.retrofit.objects
 
-import com.example.petsfromshelter.retrofit.interfaces.GetShelter
 import com.example.petsfromshelter.retrofit.RetrofitClient
 import com.example.petsfromshelter.retrofit.interfaces.UpdateShelter
 

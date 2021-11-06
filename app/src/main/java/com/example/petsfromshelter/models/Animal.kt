@@ -1,4 +1,4 @@
-package com.example.petsfromshelter.entity
+package com.example.petsfromshelter.models
 
 import java.time.LocalDate
 
