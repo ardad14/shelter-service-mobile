@@ -1,6 +1,4 @@
-package com.example.petsfromshelter.entity
-
-import java.time.LocalDate
+package com.example.petsfromshelter.models
 
 class Announcement (
     private var id: Int,
