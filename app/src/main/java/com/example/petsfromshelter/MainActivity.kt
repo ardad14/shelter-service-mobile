@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 /*
-        val shelterActivity = Intent (this, ShelterActivity::class.java)
+        val shelterActivity = Intent (this, AdminShelterActivity::class.java)
         startActivity(shelterActivity)*/
 
     }
