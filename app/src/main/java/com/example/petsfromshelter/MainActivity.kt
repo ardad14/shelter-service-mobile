@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 /*
-        val shelterActivity = Intent (this, ShelterActivity::class.java)
+        val shelterActivity = Intent (this, AdminShelterActivity::class.java)
         startActivity(shelterActivity)*/
 
     }
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 email.text.toString(),
                 password.text.toString()
         );
-        val intent = Intent(this, ShelterActivity::class.java)
+        val intent = Intent(this, ShelterMaps::class.java)
         val loginService = Login.login;
         loginService.login(user).enqueue(object : Callback<User> {
             override fun onFailure(call: Call<User>, t: Throwable) {}

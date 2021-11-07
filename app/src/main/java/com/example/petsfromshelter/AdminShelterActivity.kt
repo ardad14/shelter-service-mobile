@@ -13,7 +13,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class ShelterActivity : AppCompatActivity() {
+class AdminShelterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shelter)
@@ -87,7 +87,7 @@ class ShelterActivity : AppCompatActivity() {
             }
         })
 
-        val shelterActivity = Intent(this, ShelterActivity::class.java)
+        val shelterActivity = Intent(this, AdminShelterActivity::class.java)
         startActivity(shelterActivity)
     }
 }

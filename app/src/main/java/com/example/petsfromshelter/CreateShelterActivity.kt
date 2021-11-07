@@ -5,8 +5,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -56,7 +54,7 @@ class CreateShelterActivity : AppCompatActivity() {
             "siteUrl" to siteUrl.text.toString()
         ))
 
-        val shelterActivity = Intent (this, ShelterActivity::class.java)
+        val shelterActivity = Intent (this, AdminShelterActivity::class.java)
         startActivity(shelterActivity)
     }
 }
