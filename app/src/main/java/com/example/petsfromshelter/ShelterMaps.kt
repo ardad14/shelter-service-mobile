@@ -15,6 +15,7 @@ import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import retrofit2.Call
 import retrofit2.Callback
@@ -59,13 +60,18 @@ class ShelterMaps : AppCompatActivity(), OnMapReadyCallback {
             ) {
                 shelters = response.body()!!
 
+                var markers = arrayListOf<Marker?>();
+
                 for (shelter in shelters) {
-                    map.addMarker(
+                    val marker = map.addMarker(
                         MarkerOptions()
                             .position(LatLng(shelter.latitude, shelter.longitude))
                             .title(shelter.name)
                             .snippet(shelter.phone)
                     )
+                    if (marker != null) {
+                        marker.tag = shelter
+                    };
                 }
 
                 val homeLatLng = LatLng(49.996143532670125, 36.23116036460851)
@@ -74,8 +80,9 @@ class ShelterMaps : AppCompatActivity(), OnMapReadyCallback {
                 map.setInfoWindowAdapter(CustomInfoWindowForGoogleMap(context))
 
                 map.setOnInfoWindowClickListener(OnInfoWindowClickListener { marker ->
-                    val i = Intent(context, AdminShelterActivity::class.java)
-                    startActivity(i)
+                    val shelter = Intent(context, UserShelterActivity::class.java)
+                    shelter.putExtra("shelter", marker.tag as Shelter);
+                    startActivity(shelter)
                 })
 
             }
