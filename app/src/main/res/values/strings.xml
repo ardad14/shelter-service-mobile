@@ -27,4 +27,15 @@
     <string name="shelter_title">Дані про ваш притулок</string>
     <string name="shelter_change">Змінити</string>
     <string name="title_activity_shelter_maps">Map</string>
+    <string name="title_activity_user_shelter">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="pets">Тварини</string>
+    <string name="shelter">О притулку</string>
+    <string name="settings">Налаштування</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="shelter_main_title">Притулок</string>
+    <string name="pets_main_title">Тварини</string>
 </resources>

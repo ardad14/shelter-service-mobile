@@ -1,5 +1,7 @@
 package com.example.petsfromshelter.models
 
+import java.io.Serializable;
+
 data class Shelter (
     var id: Int,
     var name: String,
@@ -8,6 +10,6 @@ data class Shelter (
     var latitude: Double,
     var phone: String,
     var siteUrl: String
-)
+) : Serializable
 
 
