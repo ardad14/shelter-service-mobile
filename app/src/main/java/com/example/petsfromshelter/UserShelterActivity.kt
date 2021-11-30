@@ -1,14 +1,17 @@
 package com.example.petsfromshelter
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.petsfromshelter.fragments.PetsFragment
 import com.example.petsfromshelter.fragments.ShelterInformationFragment
+import com.example.petsfromshelter.models.Animal
 import com.example.petsfromshelter.models.Shelter
+import com.example.petsfromshelter.retrofit.objects.GetAnimalsByShelter
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class UserShelterActivity : AppCompatActivity() {
 
@@ -20,41 +23,53 @@ class UserShelterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_shelter)
 
-        //replaceFragment(shelterInformationFragment)
-
-       /* BottomNavigationView.OnNavigationItemSelectedListener { item ->
-            when(item.itemId) {
-                R.id.pets -> {
-                    replaceFragment(petsFragment)
-                    true
-                }
-                R.id.shelter -> {
-                    replaceFragment(shelterInformationFragment)
-                    true
-                }
-                else -> false
-            }
-        }*/
-
         val rawData = intent.extras
         val shelter = rawData?.getSerializable("shelter") as Shelter
 
+        val bundle = Bundle()
+        bundle.putSerializable("shelter", shelter)
 
-        val name: TextView = findViewById<TextView>(R.id.nameText)
-        val phone: TextView = findViewById<TextView>(R.id.phoneText)
-        val email: TextView = findViewById<TextView>(R.id.emailText)
-        val siteUrl: TextView = findViewById<TextView>(R.id.urlText)
+        shelterInformationFragment.arguments = bundle
+        replaceFragment(shelterInformationFragment)
 
-        name.text = shelter.name
-        phone.text = shelter.phone
-        email.text = shelter.email
-        siteUrl.text = shelter.siteUrl
 
+        val navigation: BottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+        navigation.setOnNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.pets ->  {
+                    val animalService = GetAnimalsByShelter.getAnimalsByShelter
+                    animalService.getAnimalsList(shelter.id).enqueue(object : Callback<ArrayList<Animal>> {
+                        override fun onFailure(call: Call<ArrayList<Animal>>, t: Throwable) {
+                            println("Error")
+                            println(t.message)
+                        }
+
+                        override fun onResponse(
+                                call: Call<ArrayList<Animal>>,
+                                response: Response<ArrayList<Animal>>
+                        ) {
+                            val animals = response.body()!!
+                            println(animals)
+                            bundle.putSerializable("animals", animals)
+                            petsFragment.arguments = bundle
+                            replaceFragment(petsFragment)
+                        }
+                    })
+                }
+                R.id.shelter -> {
+                    bundle.putSerializable("shelter", shelter)
+                    shelterInformationFragment.arguments = bundle
+                    replaceFragment(shelterInformationFragment)
+                }
+            }
+            true
+        }
     }
 
-    /*private fun replaceFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, fragment)
-        transaction.commit()
-    }*/
+    private fun replaceFragment(fragment: Fragment) =
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fl_wrapper, fragment)
+            commit()
+        }
 }
