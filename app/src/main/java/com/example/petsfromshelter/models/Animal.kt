@@ -1,14 +1,16 @@
 package com.example.petsfromshelter.models
 
-import java.time.LocalDate
+import java.io.Serializable;
+import java.sql.Date
 
-class Animal constructor (
-    private var id: Int,
-    private var name: String,
-    private var breed: String,
-    private var birth: LocalDate,
-    private var weight: Double,
-    private var image: String
-) {
-
-}
+data class Animal (
+        var id: Int,
+        var name: String,
+        var description: String,
+        var gender: String,
+        var dateOfBirth: Date,
+        var sterelized: Boolean,
+        var imageUrl: String,
+        var species: String,
+        var shelterId: Int
+) : Serializable
