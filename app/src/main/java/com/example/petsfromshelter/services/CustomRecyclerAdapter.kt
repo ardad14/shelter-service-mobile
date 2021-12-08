@@ -57,11 +57,7 @@ class CustomRecyclerAdapter(private val animals: ArrayList<Animal>) :
             holder.imageView!!
         )
         holder.genderText?.text = animals.map { animal -> "Стать: " + animal.gender }[position]
-        holder.ageText?.text = animals.map {
-            animal -> "Вiк: " +  Period.between(
-                LocalDate.parse(animal.dateOfBirth.toString()),
-                LocalDate.now()).years.toString() + " роки"
-        }[position]
+        holder.ageText?.text = animals.map { animal -> "Вік: " + animal.age }[position]
     }
 
     override fun getItemCount() = animals.size
