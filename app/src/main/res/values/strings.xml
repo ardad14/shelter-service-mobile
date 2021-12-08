@@ -38,4 +38,16 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="shelter_main_title">Притулок</string>
     <string name="pets_main_title">Тварини</string>
+    <string-array name="species">
+        <item>-</item>
+        <item>Собака</item>
+        <item>Кіт</item>
+    </string-array>
+    <string-array name="sorting">
+        <item>-</item>
+        <item>За ім`ям</item>
+        <item>За віком</item>
+        <item>Хлопчики</item>
+        <item>Дівчинки</item>
+    </string-array>
 </resources>

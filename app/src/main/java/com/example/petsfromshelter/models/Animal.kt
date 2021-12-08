@@ -8,7 +8,7 @@ data class Animal (
         var name: String,
         var description: String,
         var gender: String,
-        var dateOfBirth: Date,
+        var age: String,
         var sterelized: Boolean,
         var imageUrl: String,
         var species: String,
