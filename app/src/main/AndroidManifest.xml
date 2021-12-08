@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.petsfromshelter">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -16,7 +17,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Petsfromshelter">
+        android:theme="@style/Theme.Petsfromshelter"
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        >
         <activity
             android:name=".UserShelterActivity"
             android:label="@string/title_activity_user_shelter"></activity>
