@@ -51,6 +51,7 @@ class UserShelterActivity : AppCompatActivity() {
                         ) {
                             val animals = response.body()!!
                             println(animals)
+                            bundle.putInt("shelterId", shelter.id)
                             bundle.putSerializable("animals", animals)
                             petsFragment.arguments = bundle
                             replaceFragment(petsFragment)
