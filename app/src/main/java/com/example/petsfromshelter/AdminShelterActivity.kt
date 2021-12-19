@@ -39,7 +39,9 @@ class AdminShelterActivity : AppCompatActivity() {
                         4.4,
                         5.5,
                         "phone",
-                        "siteUrl"
+                        "siteUrl",
+                        150,
+                        150
                 );
                 response.body()?.forEach {
                     if (it.id == 2) {
@@ -49,12 +51,12 @@ class AdminShelterActivity : AppCompatActivity() {
 
                 //println(shelter)
 
-                name.text.insert(0, shelter?.name.toString())
-                longitude.text.insert(0, shelter?.longitude.toString())
-                latitude.text.insert(0, shelter?.latitude.toString())
-                phone.text.insert(0, shelter?.phone.toString())
-                email.text.insert(0, shelter?.email.toString())
-                siteUrl.text.insert(0, shelter?.siteUrl.toString())
+                name.text.insert(0, shelter.name.toString())
+                longitude.text.insert(0, shelter.longitude.toString())
+                latitude.text.insert(0, shelter.latitude.toString())
+                phone.text.insert(0, shelter.phone.toString())
+                email.text.insert(0, shelter.email.toString())
+                siteUrl.text.insert(0, shelter.siteUrl.toString())
             }
         })
     }
@@ -74,7 +76,9 @@ class AdminShelterActivity : AppCompatActivity() {
             longitude.text.toString().toDouble(),
             latitude.text.toString().toDouble(),
             phone.text.toString(),
-            siteUrl.text.toString()
+            siteUrl.text.toString(),
+    150,
+    150
         );
 
         val updateShelter = UpdateShelter.updateShelter;

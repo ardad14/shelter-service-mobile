@@ -8,8 +8,9 @@ data class Shelter (
     var email: String,
     var longitude: Double,
     var latitude: Double,
-    var phone: String,
-    var siteUrl: String
+    var phone: String, var siteUrl: String,
+    var capacity: Int,
+    var freePlaces: Int
 ) : Serializable
 
 
