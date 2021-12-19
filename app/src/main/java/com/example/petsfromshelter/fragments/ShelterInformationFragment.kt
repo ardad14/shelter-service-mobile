@@ -36,11 +36,14 @@ class ShelterInformationFragment : Fragment() {
         val phone: TextView = view.findViewById<TextView>(R.id.phoneText)
         val email: TextView = view.findViewById<TextView>(R.id.emailText)
         val siteUrl: TextView = view.findViewById<TextView>(R.id.urlText)
+        val freePlaces: TextView = view.findViewById<TextView>(R.id.freePlacesText)
 
         name.text = shelter?.name
         phone.text = shelter?.phone
         email.text = shelter?.email
         siteUrl.text = shelter?.siteUrl
+        freePlaces.text = shelter?.freePlaces.toString() + " / " + shelter?.capacity.toString()
+
         return view
     }
 
