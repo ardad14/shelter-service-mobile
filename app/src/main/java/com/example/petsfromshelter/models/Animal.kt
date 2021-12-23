@@ -12,5 +12,6 @@ data class Animal (
         var sterelized: Boolean,
         var imageUrl: String,
         var species: String,
-        var shelterId: Int
+        var shelterId: Int,
+        var status: String
 ) : Serializable
