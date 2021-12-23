@@ -18,6 +18,13 @@
         />
 
     <TextView
+        android:id="@+id/id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
         android:id="@+id/textName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,10 +41,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-    <TextView
 
+    <TextView
         android:id="@+id/textAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textVaccination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/buttonBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="makeBook"
+        android:text="Забронювати" />
+
+    <TextView
+        android:id="@+id/textBooked"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/common_google_signin_btn_text_light"
+        android:text="Заброньовано!"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:visibility="invisible"
+        />
+
+
 </LinearLayout>
